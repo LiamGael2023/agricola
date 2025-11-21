@@ -18,6 +18,7 @@ const heroContent = [
 let currentHeroSlide = 0;
 const totalHeroSlides = 3;
 let isLoggedIn = false; // Track user login status
+let redirectToPagos = false; // Track if we should redirect to pagos after login
 
 // ===== Initialize App =====
 document.addEventListener('DOMContentLoaded', () => {
@@ -106,8 +107,12 @@ function handleLogin(event) {
         isLoggedIn = true;
         showNotification('¡Bienvenido! Inicio de sesión exitoso.');
         closeLoginModal();
-        // En una aplicación real, aquí se verificarían las credenciales
-        // y se redirigiría al usuario o se actualizaría el estado de la sesión
+
+        // Redirect to pagos if needed
+        if (redirectToPagos) {
+            redirectToPagos = false;
+            window.location.href = 'pagos.html';
+        }
     }, 1500);
 }
 
@@ -164,12 +169,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
         // Check if clicking on Pagos link
         if (href === '#pagos') {
+            e.preventDefault();
             if (!isLoggedIn) {
-                e.preventDefault();
+                redirectToPagos = true;
                 openLoginModal();
                 showNotification('Debes iniciar sesión para ver información de pagos');
                 return;
             }
+            // If already logged in, redirect directly
+            window.location.href = 'pagos.html';
+            return;
         }
 
         e.preventDefault();
