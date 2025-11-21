@@ -3,121 +3,337 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Carrito de compras de productos agrícolas frescos y naturales">
-    <title>🌾 Agricola - Productos Agrícolas Frescos</title>
+    <title>AgroMarket - Productos Agrícolas Frescos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <span class="logo-icon">🌾</span>
-                    <h1>Agricola</h1>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="top-bar-left">
+                <div class="top-bar-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Compra las 24 horas</span>
                 </div>
-                <nav class="nav">
-                    <a href="#productos" class="nav-link">Productos</a>
-                    <a href="#sobre-nosotros" class="nav-link">Sobre Nosotros</a>
-                    <a href="#contacto" class="nav-link">Contacto</a>
-                </nav>
-                <button class="cart-toggle" id="cartToggle" aria-label="Abrir carrito">
-                    🛒
-                    <span class="cart-count" id="cartCount">0</span>
+                <div class="top-bar-item">
+                    <i class="fas fa-truck"></i>
+                    <span>Envío a todo el país</span>
+                </div>
+                <div class="top-bar-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+1 234 567 890</span>
+                </div>
+            </div>
+            <div class="top-bar-right">
+                <a href="#nosotros" class="top-bar-link">Nosotros</a>
+                <a href="#seguimiento" class="top-bar-link">Seguimiento de Pedido</a>
+                <a href="#promociones" class="top-bar-link">Promociones</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo">
+                <span class="logo-icon">🌾</span>
+                <span class="logo-text">Agricola</span>
+            </a>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar productos..." id="searchInput">
+                <button onclick="performSearch()">
+                    <i class="fas fa-search"></i>
                 </button>
             </div>
-        </div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#categorias">Categorías</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <button class="cart-btn" onclick="toggleCart()">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-text">Carrito</span>
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h2 class="hero-title">Productos Agrícolas Frescos</h2>
-                <p class="hero-subtitle">Directamente del campo a tu mesa</p>
-                <a href="#productos" class="btn btn-primary">Explorar Productos</a>
+    <!-- Hero Section (Reduced Size) -->
+    <section class="hero" id="inicio">
+        <div class="hero-slides">
+            <div class="hero-slide active"></div>
+            <div class="hero-slide"></div>
+            <div class="hero-slide"></div>
+        </div>
+        <div class="hero-content">
+            <h1 id="heroTitle">Productos Agrícolas de Calidad</h1>
+            <p id="heroDescription">Directamente del campo a tu mesa. Productos frescos y naturales.</p>
+            <button class="hero-btn" onclick="document.getElementById('productos').scrollIntoView({behavior: 'smooth'})">
+                Ver Productos
+            </button>
+        </div>
+        <div class="hero-indicators">
+            <button class="hero-indicator active" onclick="goToHeroSlide(0)"></button>
+            <button class="hero-indicator" onclick="goToHeroSlide(1)"></button>
+            <button class="hero-indicator" onclick="goToHeroSlide(2)"></button>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories" id="categorias">
+        <div class="section-title">
+            <h2>Categorías</h2>
+            <p>Explora nuestra variedad de productos agrícolas</p>
+        </div>
+        <div class="category-carousel-container">
+            <button class="category-nav prev" onclick="scrollCategories(-1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="category-grid" id="categoryCarousel">
+                <div class="category-card" onclick="filterProducts('vegetables')">
+                    <i class="fas fa-carrot"></i>
+                    <h3>Vegetales</h3>
+                </div>
+                <div class="category-card" onclick="filterProducts('fruits')">
+                    <i class="fas fa-apple-alt"></i>
+                    <h3>Frutas</h3>
+                </div>
+                <div class="category-card" onclick="filterProducts('grains')">
+                    <i class="fas fa-seedling"></i>
+                    <h3>Granos</h3>
+                </div>
+                <div class="category-card" onclick="filterProducts('herbs')">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Hierbas</h3>
+                </div>
+                <div class="category-card" onclick="filterProducts('dairy')">
+                    <i class="fas fa-cheese"></i>
+                    <h3>Lácteos</h3>
+                </div>
+                <div class="category-card" onclick="filterProducts('meat')">
+                    <i class="fas fa-drumstick-bite"></i>
+                    <h3>Carnes</h3>
+                </div>
+                <div class="category-card" onclick="filterProducts('organic')">
+                    <i class="fas fa-spa"></i>
+                    <h3>Orgánicos</h3>
+                </div>
+                <div class="category-card" onclick="filterProducts('all')">
+                    <i class="fas fa-th"></i>
+                    <h3>Todos</h3>
+                </div>
+            </div>
+            <button class="category-nav next" onclick="scrollCategories(1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section class="products" id="productos">
+        <div class="products-container">
+            <div class="section-title">
+                <h2>Nuestros Productos</h2>
+                <p>Selección premium de productos agrícolas frescos</p>
+            </div>
+            <div class="product-grid" id="productGrid">
+                <!-- Products will be loaded dynamically -->
             </div>
         </div>
     </section>
 
-    <!-- Products Section -->
-    <section class="products-section" id="productos">
-        <div class="container">
-            <h2 class="section-title">Nuestros Productos</h2>
-
-            <!-- Filter Buttons -->
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">Todos</button>
-                <button class="filter-btn" data-filter="vegetables">Vegetales</button>
-                <button class="filter-btn" data-filter="fruits">Frutas</button>
-                <button class="filter-btn" data-filter="grains">Granos</button>
-                <button class="filter-btn" data-filter="herbs">Hierbas</button>
+    <!-- Features -->
+    <section class="features">
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-truck"></i>
+                <h3>Envío Rápido</h3>
+                <p>Entrega en 24-48 horas a todo el país</p>
             </div>
-
-            <!-- Products Grid -->
-            <div class="products-grid" id="productsGrid">
-                <!-- Products will be dynamically inserted here -->
+            <div class="feature-card">
+                <i class="fas fa-medal"></i>
+                <h3>Calidad Garantizada</h3>
+                <p>Productos frescos de primera calidad</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-headset"></i>
+                <h3>Soporte 24/7</h3>
+                <p>Atención al cliente siempre disponible</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-sync"></i>
+                <h3>Devoluciones</h3>
+                <p>30 días para cambios y devoluciones</p>
             </div>
         </div>
     </section>
 
-    <!-- Shopping Cart Sidebar -->
+    <!-- Gallery -->
+    <section class="gallery" id="galeria">
+        <div class="gallery-container">
+            <div class="section-title">
+                <h2>Nuestra Galería</h2>
+                <p>Conoce nuestros productos en acción</p>
+            </div>
+            <div class="carousel-wrapper">
+                <button class="carousel-btn prev" onclick="moveCarousel(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="carousel" id="carousel">
+                    <!-- Slide 1 -->
+                    <div class="carousel-slide">
+                        <div class="gallery-item" onclick="openLightbox(0)">
+                            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600" alt="Campo de trigo">
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(1)">
+                            <img src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=600" alt="Cultivo de hortalizas">
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(2)">
+                            <img src="https://images.unsplash.com/photo-1592841200221-a6898f307baa?w=600" alt="Tomates frescos">
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(3)">
+                            <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600" alt="Invernadero">
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="carousel-slide">
+                        <div class="gallery-item" onclick="openLightbox(4)">
+                            <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=600" alt="Cosecha">
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(5)">
+                            <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600" alt="Tractor en campo">
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(6)">
+                            <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=600" alt="Plantas jóvenes">
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(7)">
+                            <img src="https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=600" alt="Zanahorias frescas">
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn next" onclick="moveCarousel(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="carousel-dots" id="carouselDots">
+                <button class="carousel-dot active" onclick="goToSlide(0)"></button>
+                <button class="carousel-dot" onclick="goToSlide(1)"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Bar -->
+    <section class="contact-bar">
+        <div class="contact-bar-content">
+            <div class="contact-bar-left">
+                <div class="contact-bar-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-bar-text">
+                    <h3>Póngase en contacto con nosotros</h3>
+                    <p>Estaremos encantados de responder a sus preguntas</p>
+                </div>
+            </div>
+            <button class="contact-bar-btn" onclick="window.open('https://wa.me/1234567890', '_blank')">
+                Quiero más información
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>🌾 Agricola</h4>
+                <p>Tu aliado en el campo. Ofrecemos los mejores productos agrícolas para optimizar tu producción.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces Rápidos</h4>
+                <a href="#inicio">Inicio</a>
+                <a href="#productos">Productos</a>
+                <a href="#categorias">Categorías</a>
+                <a href="#galeria">Galería</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Calle Principal 123, Ciudad</p>
+                <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+                <p><i class="fas fa-envelope"></i> info@agricola.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Agricola. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" onclick="toggleCart()"></div>
     <div class="cart-sidebar" id="cartSidebar">
         <div class="cart-header">
-            <h3>Tu Carrito</h3>
-            <button class="cart-close" id="cartClose" aria-label="Cerrar carrito">✕</button>
+            <h3><i class="fas fa-shopping-cart"></i> Tu Carrito</h3>
+            <button class="close-cart" onclick="toggleCart()">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
-
         <div class="cart-items" id="cartItems">
-            <!-- Cart items will be dynamically inserted here -->
+            <!-- Cart items will be loaded dynamically -->
         </div>
-
-        <div class="cart-empty" id="cartEmpty">
-            <p>🛒</p>
-            <p>Tu carrito está vacío</p>
-        </div>
-
-        <div class="cart-footer" id="cartFooter">
+        <div class="cart-footer">
             <div class="cart-total">
                 <span>Total:</span>
-                <span class="total-amount" id="totalAmount">$0.00</span>
+                <span id="cartTotal">$0.00</span>
             </div>
-            <button class="btn btn-primary btn-block" id="checkoutBtn">
-                Proceder al Pago
+            <button class="checkout-btn" onclick="checkout()">
+                <i class="fas fa-credit-card"></i> Proceder al Pago
             </button>
         </div>
     </div>
 
-    <!-- Overlay -->
-    <div class="overlay" id="overlay"></div>
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notificationText"></span>
+    </div>
 
-    <!-- Footer -->
-    <footer class="footer" id="contacto">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>🌾 Agricola</h4>
-                    <p>Productos agrícolas frescos y naturales</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Contacto</h4>
-                    <p>📧 info@agricola.com</p>
-                    <p>📱 +123 456 7890</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Síguenos</h4>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook">FB</a>
-                        <a href="#" aria-label="Instagram">IG</a>
-                        <a href="#" aria-label="Twitter">TW</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Agricola. Todos los derechos reservados.</p>
-            </div>
+    <!-- Floating Social Buttons -->
+    <div class="floating-buttons">
+        <a href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20obtener%20información" class="floating-btn whatsapp-btn" target="_blank" title="Contáctanos por WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://facebook.com" class="floating-btn facebook-btn" target="_blank" title="Síguenos en Facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()">
+                <i class="fas fa-times"></i>
+            </button>
+            <button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <img src="" alt="" id="lightboxImage">
+            <button class="lightbox-nav lightbox-next" onclick="navigateLightbox(1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <p class="lightbox-caption" id="lightboxCaption"></p>
         </div>
-    </footer>
+    </div>
 
     <script src="script.js"></script>
 </body>
