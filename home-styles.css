@@ -80,7 +80,7 @@ a {
 
 /* ===== Top Bar ===== */
 .top-bar {
-    background: var(--primary-green);
+    background: linear-gradient(to right, #043b5d 0%, #065da5 50%, #0880d8 100%);
     color: var(--white);
     padding: 0.5rem 2rem;
     font-size: 0.85rem;
@@ -124,12 +124,12 @@ a {
 }
 
 .top-bar-link:hover {
-    color: var(--gold);
+    color: var(--gold-light);
 }
 
 /* ===== Header ===== */
 header {
-    background: linear-gradient(to right, #043b5d 0%, #065da5 50%, #0880d8 100%) !important;
+    background: var(--white);
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
@@ -152,12 +152,12 @@ nav {
     gap: 0.5rem;
     font-size: 1.3rem;
     font-weight: 700;
-    color: var(--white);
+    color: var(--blue-dark);
 }
 
 .logo-icon {
     font-size: 1.8rem;
-    color: var(--gold);
+    color: var(--primary-green);
 }
 
 .logo-text {
@@ -207,7 +207,7 @@ nav {
 }
 
 .nav-links a {
-    color: var(--white);
+    color: var(--text-dark);
     font-weight: 500;
     transition: var(--transition);
     position: relative;
@@ -216,7 +216,7 @@ nav {
 
 .nav-links a.active,
 .nav-links a:hover {
-    color: var(--gold);
+    color: var(--blue-medium);
 }
 
 .nav-links a::after {
@@ -226,7 +226,7 @@ nav {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--gold);
+    background: var(--blue-medium);
     transition: var(--transition);
 }
 
@@ -256,7 +256,7 @@ nav {
 .menu-toggle {
     display: none;
     background: none;
-    color: var(--white);
+    color: var(--text-dark);
     font-size: 1.5rem;
     padding: 0.5rem;
 }
