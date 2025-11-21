@@ -1,18 +1,37 @@
 /* ===== CSS Variables ===== */
 :root {
+    /* Colores principales del header azul */
+    --blue-dark: #043b5d;
+    --blue-medium: #065da5;
+    --blue-light: #0880d8;
+    --blue-sky: #4da6ff;
+
+    /* Colores verdes complementarios */
     --primary-green: #a3bd14;
-    --secondary-green: #a3bd14;
-    --light-green: #c5d96a;
-    --accent-green: #e0ea9f;
-    --earth-brown: #5d4e37;
-    --light-brown: #8b7355;
+    --secondary-green: #8ca612;
+    --light-green: #b8cc3a;
+    --accent-green: #dae89b;
+
+    /* Colores de acento */
+    --gold: #f9a825;
+    --gold-light: #ffc04d;
+
+    /* Colores neutros */
     --cream: #f5f1eb;
-    --wheat: #f9a825;
+    --cream-dark: #e8e4dc;
     --white: #ffffff;
+    --gray-light: #ecf0f1;
+
+    /* Colores de texto */
     --text-dark: #2c3e50;
+    --text-medium: #34495e;
     --text-light: #7f8c8d;
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.15);
+
+    /* Efectos */
+    --shadow: 0 10px 30px rgba(4, 59, 93, 0.1);
+    --shadow-hover: 0 20px 40px rgba(4, 59, 93, 0.15);
+    --shadow-blue: 0 5px 20px rgba(8, 128, 216, 0.2);
+    --shadow-green: 0 5px 20px rgba(163, 189, 20, 0.2);
     --transition: all 0.3s ease;
 }
 
@@ -90,7 +109,7 @@ a {
 }
 
 .top-bar-item i {
-    color: var(--wheat);
+    color: var(--gold);
 }
 
 .top-bar-right {
@@ -105,7 +124,7 @@ a {
 }
 
 .top-bar-link:hover {
-    color: var(--wheat);
+    color: var(--gold);
 }
 
 /* ===== Header ===== */
@@ -138,7 +157,7 @@ nav {
 
 .logo-icon {
     font-size: 1.8rem;
-    color: var(--wheat);
+    color: var(--gold);
 }
 
 .logo-text {
@@ -197,7 +216,7 @@ nav {
 
 .nav-links a.active,
 .nav-links a:hover {
-    color: var(--wheat);
+    color: var(--gold);
 }
 
 .nav-links a::after {
@@ -207,7 +226,7 @@ nav {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--wheat);
+    background: var(--gold);
     transition: var(--transition);
 }
 
@@ -217,20 +236,21 @@ nav {
 }
 
 .login-btn {
-    background: var(--wheat);
+    background: var(--gold);
     padding: 0.8rem 1.5rem;
     border-radius: 50px;
     display: flex;
     align-items: center;
     gap: 0.5rem;
     font-weight: 600;
-    color: var(--primary-green);
+    color: var(--white);
     transition: var(--transition);
 }
 
 .login-btn:hover {
     transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(249, 168, 37, 0.4);
+    background: var(--gold-light);
+    box-shadow: var(--shadow-blue);
 }
 
 .menu-toggle {
@@ -321,8 +341,8 @@ nav {
 }
 
 .hero-btn {
-    background: var(--wheat);
-    color: var(--primary-green);
+    background: var(--gold);
+    color: var(--white);
     padding: 1rem 2.5rem;
     border-radius: 50px;
     font-size: 1.1rem;
@@ -334,8 +354,8 @@ nav {
 
 .hero-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    background: var(--white);
+    background: var(--gold-light);
+    box-shadow: var(--shadow-blue);
 }
 
 .hero-indicators {
@@ -359,7 +379,7 @@ nav {
 }
 
 .hero-indicator.active {
-    background: var(--wheat);
+    background: var(--gold);
     transform: scale(1.2);
 }
 
@@ -409,12 +429,13 @@ nav {
 .about-icon {
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+    background: linear-gradient(135deg, var(--blue-medium), var(--blue-light));
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 1.5rem;
+    box-shadow: var(--shadow-blue);
 }
 
 .about-icon i {
@@ -453,7 +474,7 @@ nav {
 .stat-number {
     font-size: 3rem;
     font-weight: 700;
-    color: var(--wheat);
+    color: var(--gold);
     margin-bottom: 0.5rem;
 }
 
@@ -490,17 +511,28 @@ nav {
 .service-image {
     width: 100px;
     height: 100px;
-    background: var(--accent-green);
+    background: linear-gradient(135deg, var(--accent-green), var(--light-green));
     border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 1.5rem;
+    transition: var(--transition);
+}
+
+.service-card:hover .service-image {
+    background: linear-gradient(135deg, var(--blue-light), var(--blue-sky));
+    box-shadow: var(--shadow-blue);
 }
 
 .service-image i {
     font-size: 3rem;
     color: var(--primary-green);
+    transition: var(--transition);
+}
+
+.service-card:hover .service-image i {
+    color: var(--white);
 }
 
 .service-card h3 {
@@ -673,8 +705,8 @@ nav {
 }
 
 .cta-btn {
-    background: var(--wheat);
-    color: var(--primary-green);
+    background: var(--gold);
+    color: var(--white);
     padding: 1rem 2rem;
     border-radius: 50px;
     font-size: 1.1rem;
@@ -684,9 +716,9 @@ nav {
 }
 
 .cta-btn:hover {
-    background: var(--white);
+    background: var(--gold-light);
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow-blue);
 }
 
 /* ===== Newsletter Section ===== */
@@ -769,7 +801,7 @@ footer {
 .footer-section h4 {
     font-size: 1.2rem;
     margin-bottom: 1rem;
-    color: var(--wheat);
+    color: var(--gold);
 }
 
 .footer-section p,
@@ -781,7 +813,7 @@ footer {
 }
 
 .footer-section a:hover {
-    color: var(--wheat);
+    color: var(--gold);
     padding-left: 5px;
 }
 
@@ -804,7 +836,7 @@ footer {
 }
 
 .social-links a:hover {
-    background: var(--wheat);
+    background: var(--gold);
     color: var(--primary-green);
     transform: translateY(-3px);
 }
