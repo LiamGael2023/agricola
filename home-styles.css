@@ -1,9 +1,9 @@
 /* ===== CSS Variables ===== */
 :root {
-    --primary-green: #2d5016;
-    --secondary-green: #4a7c23;
-    --light-green: #8bc34a;
-    --accent-green: #c5e1a5;
+    --primary-green: #a3bd14;
+    --secondary-green: #a3bd14;
+    --light-green: #c5d96a;
+    --accent-green: #e0ea9f;
     --earth-brown: #5d4e37;
     --light-brown: #8b7355;
     --cream: #f5f1eb;
@@ -110,7 +110,7 @@ a {
 
 /* ===== Header ===== */
 header {
-    background: var(--white);
+    background: linear-gradient(to right, #043b5d 0%, #065da5 50%, #0880d8 100%) !important;
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
@@ -133,12 +133,12 @@ nav {
     gap: 0.5rem;
     font-size: 1.3rem;
     font-weight: 700;
-    color: var(--primary-green);
+    color: var(--white);
 }
 
 .logo-icon {
     font-size: 1.8rem;
-    color: var(--secondary-green);
+    color: var(--wheat);
 }
 
 .logo-text {
@@ -188,7 +188,7 @@ nav {
 }
 
 .nav-links a {
-    color: var(--text-dark);
+    color: var(--white);
     font-weight: 500;
     transition: var(--transition);
     position: relative;
@@ -197,7 +197,7 @@ nav {
 
 .nav-links a.active,
 .nav-links a:hover {
-    color: var(--secondary-green);
+    color: var(--wheat);
 }
 
 .nav-links a::after {
@@ -207,7 +207,7 @@ nav {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--secondary-green);
+    background: var(--wheat);
     transition: var(--transition);
 }
 
@@ -236,7 +236,7 @@ nav {
 .menu-toggle {
     display: none;
     background: none;
-    color: var(--text-dark);
+    color: var(--white);
     font-size: 1.5rem;
     padding: 0.5rem;
 }

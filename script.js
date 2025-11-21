@@ -192,6 +192,7 @@ const products = [
 // ===== Shopping Cart State =====
 let cart = [];
 let currentFilter = 'all';
+let isLoggedIn = false; // Track user login status
 
 // ===== Gallery Images =====
 const galleryImages = [
@@ -471,6 +472,13 @@ function loadCart() {
 
 // ===== Checkout =====
 function checkout() {
+    // Check if user is logged in
+    if (!isLoggedIn) {
+        openLoginModal();
+        showNotification('Debes iniciar sesión para proceder al pago');
+        return;
+    }
+
     if (cart.length === 0) {
         showNotification('Tu carrito está vacío');
         return;
@@ -623,5 +631,69 @@ document.addEventListener('click', (e) => {
     const lightbox = document.getElementById('lightbox');
     if (e.target === lightbox) {
         closeLightbox();
+    }
+});
+
+// ===== Login Modal Functions =====
+function openLoginModal() {
+    const modal = document.getElementById('loginModal');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLoginModal() {
+    const modal = document.getElementById('loginModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Close modal on overlay click
+document.addEventListener('click', (e) => {
+    const modal = document.getElementById('loginModal');
+    if (e.target === modal) {
+        closeLoginModal();
+    }
+});
+
+// Close modal on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        const modal = document.getElementById('loginModal');
+        if (modal && modal.classList.contains('active')) {
+            closeLoginModal();
+        }
+    }
+});
+
+// ===== Handle Login =====
+function handleLogin(event) {
+    event.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    // Simulación de login
+    showNotification('Iniciando sesión...');
+
+    setTimeout(() => {
+        isLoggedIn = true;
+        showNotification('¡Bienvenido! Inicio de sesión exitoso.');
+        closeLoginModal();
+        // In a real application, here you would verify credentials
+        // and update user state
+    }, 1500);
+}
+
+// ===== Handle Pagos Link Click =====
+document.addEventListener('DOMContentLoaded', () => {
+    // Add event listener for Pagos link
+    const pagosLink = document.querySelector('a[href="home.html#pagos"]');
+    if (pagosLink) {
+        pagosLink.addEventListener('click', (e) => {
+            if (!isLoggedIn) {
+                e.preventDefault();
+                openLoginModal();
+                showNotification('Debes iniciar sesión para ver información de pagos');
+            }
+        });
     }
 });
