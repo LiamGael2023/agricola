@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chavimochic Marketplace - Agricultura y Desarrollo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="home-styles.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="top-bar-left">
+                <div class="top-bar-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Atención 24/7</span>
+                </div>
+                <div class="top-bar-item">
+                    <i class="fas fa-truck"></i>
+                    <span>Envíos a nivel nacional</span>
+                </div>
+                <div class="top-bar-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+51 123 456 789</span>
+                </div>
+            </div>
+            <div class="top-bar-right">
+                <a href="#nosotros" class="top-bar-link">Nosotros</a>
+                <a href="#proyecto" class="top-bar-link">Proyecto Chavimochic</a>
+                <a href="#beneficios" class="top-bar-link">Beneficios</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="home.html" class="logo">
+                <i class="fas fa-seedling logo-icon"></i>
+                <span class="logo-text">Chavimochic Marketplace</span>
+            </a>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar información..." id="searchInput">
+                <button onclick="performSearch()">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html" class="active">Inicio</a></li>
+                <li><a href="index.html">Tienda Virtual</a></li>
+                <li><a href="#pagos">Pagos</a></li>
+            </ul>
+            <button class="login-btn" onclick="openLoginModal()">
+                <i class="fas fa-user"></i>
+                <span>Iniciar Sesión</span>
+            </button>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-slides">
+            <div class="hero-slide active"></div>
+            <div class="hero-slide"></div>
+            <div class="hero-slide"></div>
+        </div>
+        <div class="hero-content">
+            <h1 id="heroTitle">Chavimochic Marketplace</h1>
+            <p id="heroDescription">Conectando productores agrícolas con el mercado. Desarrollo sostenible del agro peruano.</p>
+            <button class="hero-btn" onclick="window.location.href='index.html'">
+                Visitar Tienda Virtual
+            </button>
+        </div>
+        <div class="hero-indicators">
+            <button class="hero-indicator active" onclick="goToHeroSlide(0)"></button>
+            <button class="hero-indicator" onclick="goToHeroSlide(1)"></button>
+            <button class="hero-indicator" onclick="goToHeroSlide(2)"></button>
+        </div>
+    </section>
+
+    <!-- About Chavimochic -->
+    <section class="about-section" id="proyecto">
+        <div class="container">
+            <div class="section-title">
+                <h2>Proyecto Chavimochic</h2>
+                <p>Transformando el desierto en tierras productivas</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h3>Irrigación Moderna</h3>
+                    <p>Sistema de riego que aprovecha las aguas del río Santa para irrigar más de 144,000 hectáreas en La Libertad, Perú.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-tractor"></i>
+                    </div>
+                    <h3>Desarrollo Agrícola</h3>
+                    <p>Promovemos la agricultura moderna y sostenible, generando empleo y desarrollo económico en la región.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Sostenibilidad</h3>
+                    <p>Compromiso con prácticas agrícolas sostenibles que protegen el medio ambiente y aseguran el futuro.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Comunidad</h3>
+                    <p>Conectamos agricultores, productores y consumidores en un marketplace digital moderno.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">144,000+</div>
+                    <div class="stat-label">Hectáreas Irrigadas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50,000+</div>
+                    <div class="stat-label">Familias Beneficiadas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">300+</div>
+                    <div class="stat-label">Productos Agrícolas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Atención al Cliente</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="nosotros">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestros Servicios</h2>
+                <p>Soluciones integrales para el sector agrícola</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>Tienda Virtual</h3>
+                    <p>Marketplace digital donde productores pueden vender sus productos directamente a consumidores y empresas.</p>
+                    <a href="index.html" class="service-link">Visitar Tienda <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>Pagos Seguros</h3>
+                    <p>Sistema de pagos confiable con múltiples opciones: tarjetas, transferencias bancarias y billeteras digitales.</p>
+                    <a href="#pagos" class="service-link">Más Información <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3>Logística</h3>
+                    <p>Servicio de entrega eficiente que garantiza la frescura de los productos agrícolas hasta tu puerta.</p>
+                    <a href="#" class="service-link">Conocer Más <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Asesoría</h3>
+                    <p>Soporte técnico y asesoría agrícola para optimizar la producción y comercialización de productos.</p>
+                    <a href="#" class="service-link">Contactar <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section" id="beneficios">
+        <div class="container">
+            <div class="benefits-content">
+                <div class="benefits-text">
+                    <h2>Beneficios del Proyecto Chavimochic</h2>
+                    <ul class="benefits-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Incremento de Productividad</strong>
+                                <p>Aumento significativo en la producción agrícola gracias al riego tecnificado</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Generación de Empleo</strong>
+                                <p>Miles de puestos de trabajo directos e indirectos en la región</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Desarrollo Económico</strong>
+                                <p>Impulso a la economía regional y nacional mediante exportaciones</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Seguridad Alimentaria</strong>
+                                <p>Mayor disponibilidad de alimentos frescos y de calidad</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Tecnología Agrícola</strong>
+                                <p>Implementación de técnicas modernas de cultivo y riego</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="benefits-image">
+                    <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800" alt="Agricultura moderna">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Methods Section -->
+    <section class="payment-section" id="pagos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Métodos de Pago</h2>
+                <p>Múltiples opciones seguras para tu comodidad</p>
+            </div>
+            <div class="payment-grid">
+                <div class="payment-card">
+                    <i class="fas fa-credit-card"></i>
+                    <h4>Tarjetas</h4>
+                    <p>Visa, Mastercard, American Express</p>
+                </div>
+                <div class="payment-card">
+                    <i class="fas fa-university"></i>
+                    <h4>Transferencias</h4>
+                    <p>Depósitos y transferencias bancarias</p>
+                </div>
+                <div class="payment-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h4>Billeteras Digitales</h4>
+                    <p>Yape, Plin, PayPal</p>
+                </div>
+                <div class="payment-card">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <h4>Efectivo</h4>
+                    <p>Pago contra entrega</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <div class="cta-icon">
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="cta-text">
+                <h3>¿Listo para Comprar Productos Frescos?</h3>
+                <p>Explora nuestra tienda virtual y encuentra productos agrícolas de primera calidad</p>
+            </div>
+            <button class="cta-btn" onclick="window.location.href='index.html'">
+                Ir a la Tienda Virtual
+            </button>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <h3>Suscríbete a Nuestro Boletín</h3>
+                <p>Recibe las últimas noticias sobre agricultura, productos y ofertas especiales</p>
+                <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+                    <input type="email" placeholder="Tu correo electrónico" required>
+                    <button type="submit">Suscribirse</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4><i class="fas fa-seedling"></i> Chavimochic Marketplace</h4>
+                <p>Plataforma digital que conecta productores agrícolas con consumidores. Promoviendo el desarrollo sostenible del agro peruano.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces Rápidos</h4>
+                <a href="home.html">Inicio</a>
+                <a href="index.html">Tienda Virtual</a>
+                <a href="#pagos">Métodos de Pago</a>
+                <a href="#proyecto">Proyecto Chavimochic</a>
+                <a href="#beneficios">Beneficios</a>
+            </div>
+            <div class="footer-section">
+                <h4>Servicios</h4>
+                <a href="index.html">Productos Agrícolas</a>
+                <a href="#">Asesoría Técnica</a>
+                <a href="#">Logística y Entregas</a>
+                <a href="#">Soporte al Cliente</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Av. Chavimochic 123, Trujillo - La Libertad, Perú</p>
+                <p><i class="fas fa-phone"></i> +51 123 456 789</p>
+                <p><i class="fas fa-envelope"></i> info@chavimochic-marketplace.pe</p>
+                <p><i class="fas fa-clock"></i> Lun - Dom: 24/7</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Chavimochic Marketplace. Todos los derechos reservados. | Proyecto Especial Chavimochic - Gobierno Regional La Libertad</p>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeLoginModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2>Iniciar Sesión</h2>
+            <form class="login-form" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="email">
+                        <i class="fas fa-envelope"></i> Correo Electrónico
+                    </label>
+                    <input type="email" id="email" required placeholder="ejemplo@correo.com">
+                </div>
+                <div class="form-group">
+                    <label for="password">
+                        <i class="fas fa-lock"></i> Contraseña
+                    </label>
+                    <input type="password" id="password" required placeholder="••••••••">
+                </div>
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox">
+                        <span>Recordarme</span>
+                    </label>
+                    <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a>
+                </div>
+                <button type="submit" class="btn-submit">Iniciar Sesión</button>
+                <div class="divider">o</div>
+                <button type="button" class="btn-social btn-google">
+                    <i class="fab fa-google"></i> Continuar con Google
+                </button>
+                <button type="button" class="btn-social btn-facebook">
+                    <i class="fab fa-facebook-f"></i> Continuar con Facebook
+                </button>
+                <p class="signup-link">
+                    ¿No tienes cuenta? <a href="#">Regístrate aquí</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notificationText"></span>
+    </div>
+
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <a href="https://wa.me/51123456789?text=Hola,%20necesito%20información%20sobre%20Chavimochic%20Marketplace" class="floating-btn whatsapp-btn" target="_blank" title="Contáctanos por WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="#" class="floating-btn facebook-btn" target="_blank" title="Síguenos en Facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+    </div>
+
+    <script src="home-script.js"></script>
+</body>
+</html>

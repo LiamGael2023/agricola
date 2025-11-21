@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgroMarket - Productos Agrícolas Frescos</title>
+    <title>Tienda Virtual - Chavimochic Marketplace</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
@@ -27,9 +27,9 @@
                 </div>
             </div>
             <div class="top-bar-right">
-                <a href="#nosotros" class="top-bar-link">Nosotros</a>
+                <a href="home.html#nosotros" class="top-bar-link">Nosotros</a>
                 <a href="#seguimiento" class="top-bar-link">Seguimiento de Pedido</a>
-                <a href="#promociones" class="top-bar-link">Promociones</a>
+                <a href="home.html#proyecto" class="top-bar-link">Proyecto Chavimochic</a>
             </div>
         </div>
     </div>
@@ -37,9 +37,9 @@
     <!-- Header -->
     <header>
         <nav>
-            <a href="#" class="logo">
-                <span class="logo-icon">🌾</span>
-                <span class="logo-text">Agricola</span>
+            <a href="home.html" class="logo">
+                <i class="fas fa-seedling logo-icon"></i>
+                <span class="logo-text">Chavimochic Marketplace</span>
             </a>
             <div class="search-bar">
                 <input type="text" placeholder="Buscar productos..." id="searchInput">
@@ -48,10 +48,10 @@
                 </button>
             </div>
             <ul class="nav-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#productos">Productos</a></li>
+                <li><a href="home.html">Inicio</a></li>
+                <li><a href="#productos" class="active">Tienda Virtual</a></li>
+                <li><a href="home.html#pagos">Pagos</a></li>
                 <li><a href="#categorias">Categorías</a></li>
-                <li><a href="#galeria">Galería</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
             <button class="cart-btn" onclick="toggleCart()">
@@ -251,31 +251,33 @@
     <footer id="contacto">
         <div class="footer-content">
             <div class="footer-section">
-                <h4>🌾 Agricola</h4>
-                <p>Tu aliado en el campo. Ofrecemos los mejores productos agrícolas para optimizar tu producción.</p>
+                <h4><i class="fas fa-seedling"></i> Chavimochic Marketplace</h4>
+                <p>Plataforma digital que conecta productores agrícolas con consumidores. Promoviendo el desarrollo sostenible del agro peruano.</p>
                 <div class="social-links">
                     <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
             <div class="footer-section">
                 <h4>Enlaces Rápidos</h4>
-                <a href="#inicio">Inicio</a>
-                <a href="#productos">Productos</a>
+                <a href="home.html">Inicio</a>
+                <a href="#productos">Tienda Virtual</a>
+                <a href="home.html#pagos">Métodos de Pago</a>
                 <a href="#categorias">Categorías</a>
-                <a href="#galeria">Galería</a>
+                <a href="home.html#proyecto">Proyecto Chavimochic</a>
             </div>
             <div class="footer-section">
                 <h4>Contacto</h4>
-                <p><i class="fas fa-map-marker-alt"></i> Calle Principal 123, Ciudad</p>
-                <p><i class="fas fa-phone"></i> +1 234 567 890</p>
-                <p><i class="fas fa-envelope"></i> info@agricola.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Av. Chavimochic 123, Trujillo - La Libertad, Perú</p>
+                <p><i class="fas fa-phone"></i> +51 123 456 789</p>
+                <p><i class="fas fa-envelope"></i> info@chavimochic-marketplace.pe</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Agricola. Todos los derechos reservados.</p>
+            <p>&copy; 2025 Chavimochic Marketplace. Todos los derechos reservados. | Proyecto Especial Chavimochic</p>
         </div>
     </footer>
 
