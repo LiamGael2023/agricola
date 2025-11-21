@@ -263,7 +263,7 @@ function renderProducts(filter = 'all') {
                 <p class="product-description">${product.description}</p>
                 <div class="product-footer">
                     <div>
-                        <div class="product-price">$${product.price.toFixed(2)}</div>
+                        <div class="product-price">S/ ${product.price.toFixed(2)}</div>
                         <div class="product-unit">por ${product.unit}</div>
                     </div>
                     <button class="add-to-cart" onclick="addToCart(${product.id})">
@@ -327,7 +327,7 @@ function performSearch() {
                     <p class="product-description">${product.description}</p>
                     <div class="product-footer">
                         <div>
-                            <div class="product-price">$${product.price.toFixed(2)}</div>
+                            <div class="product-price">S/ ${product.price.toFixed(2)}</div>
                             <div class="product-unit">por ${product.unit}</div>
                         </div>
                         <button class="add-to-cart" onclick="addToCart(${product.id})">
@@ -406,7 +406,7 @@ function updateCartUI() {
     const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
     cartCount.textContent = totalItems;
-    cartTotal.textContent = `$${totalPrice.toFixed(2)}`;
+    cartTotal.textContent = `S/ ${totalPrice.toFixed(2)}`;
 
     if (cart.length === 0) {
         cartItems.innerHTML = `
@@ -421,7 +421,7 @@ function updateCartUI() {
                 <div class="cart-item-image">${item.icon}</div>
                 <div class="cart-item-details">
                     <div class="cart-item-name">${item.name}</div>
-                    <div class="cart-item-price">$${item.price.toFixed(2)} / ${item.unit}</div>
+                    <div class="cart-item-price">S/ ${item.price.toFixed(2)} / ${item.unit}</div>
                     <div class="cart-item-controls">
                         <button class="quantity-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
                         <span class="quantity">${item.quantity}</span>
@@ -491,7 +491,7 @@ function checkout() {
 
 Resumen:
 - ${itemCount} producto(s)
-- Total: $${total.toFixed(2)}
+- Total: S/ ${total.toFixed(2)}
 
 En una aplicación real, aquí se procesaría el pago y se enviaría el pedido.`);
 
