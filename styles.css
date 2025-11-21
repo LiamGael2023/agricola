@@ -348,7 +348,7 @@ nav {
 }
 
 .hero-btn {
-    background: var(--gold);
+    background: linear-gradient(135deg, var(--blue-medium), var(--blue-light));
     color: var(--white);
     padding: 0.8rem 2rem;
     border-radius: 50px;
@@ -357,11 +357,12 @@ nav {
     cursor: pointer;
     transition: var(--transition);
     font-family: inherit;
+    border: none;
 }
 
 .hero-btn:hover {
     transform: translateY(-3px);
-    background: var(--gold-light);
+    background: linear-gradient(135deg, var(--blue-light), var(--blue-sky));
     box-shadow: var(--shadow-blue);
 }
 

@@ -17,6 +17,7 @@ const heroContent = [
 // ===== State =====
 let currentHeroSlide = 0;
 const totalHeroSlides = 3;
+let isLoggedIn = false; // Track user login status
 
 // ===== Initialize App =====
 document.addEventListener('DOMContentLoaded', () => {
@@ -102,6 +103,7 @@ function handleLogin(event) {
     showNotification('Iniciando sesión...');
 
     setTimeout(() => {
+        isLoggedIn = true;
         showNotification('¡Bienvenido! Inicio de sesión exitoso.');
         closeLoginModal();
         // En una aplicación real, aquí se verificarían las credenciales
@@ -158,8 +160,20 @@ document.addEventListener('DOMContentLoaded', () => {
 // ===== Smooth Scroll for Internal Links =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+
+        // Check if clicking on Pagos link
+        if (href === '#pagos') {
+            if (!isLoggedIn) {
+                e.preventDefault();
+                openLoginModal();
+                showNotification('Debes iniciar sesión para ver información de pagos');
+                return;
+            }
+        }
+
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const target = document.querySelector(href);
         if (target) {
             target.scrollIntoView({
                 behavior: 'smooth',

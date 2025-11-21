@@ -341,7 +341,7 @@ nav {
 }
 
 .hero-btn {
-    background: var(--gold);
+    background: linear-gradient(135deg, var(--blue-medium), var(--blue-light));
     color: var(--white);
     padding: 1rem 2.5rem;
     border-radius: 50px;
@@ -350,11 +350,12 @@ nav {
     cursor: pointer;
     transition: var(--transition);
     font-family: inherit;
+    border: none;
 }
 
 .hero-btn:hover {
     transform: translateY(-3px);
-    background: var(--gold-light);
+    background: linear-gradient(135deg, var(--blue-light), var(--blue-sky));
     box-shadow: var(--shadow-blue);
 }
 
@@ -474,7 +475,7 @@ nav {
 .stat-number {
     font-size: 3rem;
     font-weight: 700;
-    color: var(--gold);
+    color: var(--white);
     margin-bottom: 0.5rem;
 }
 
@@ -593,14 +594,20 @@ nav {
 
 .benefits-list i {
     font-size: 1.5rem;
-    color: var(--secondary-green);
+    background: linear-gradient(135deg, var(--blue-medium), var(--blue-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     flex-shrink: 0;
     margin-top: 0.2rem;
 }
 
 .benefits-list strong {
     display: block;
-    color: var(--primary-green);
+    background: linear-gradient(135deg, var(--blue-medium), var(--blue-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     font-size: 1.1rem;
     margin-bottom: 0.3rem;
 }
@@ -705,7 +712,7 @@ nav {
 }
 
 .cta-btn {
-    background: var(--gold);
+    background: linear-gradient(135deg, var(--blue-medium), var(--blue-light));
     color: var(--white);
     padding: 1rem 2rem;
     border-radius: 50px;
@@ -716,7 +723,7 @@ nav {
 }
 
 .cta-btn:hover {
-    background: var(--gold-light);
+    background: linear-gradient(135deg, var(--blue-light), var(--blue-sky));
     transform: translateY(-3px);
     box-shadow: var(--shadow-blue);
 }
@@ -801,7 +808,10 @@ footer {
 .footer-section h4 {
     font-size: 1.2rem;
     margin-bottom: 1rem;
-    color: var(--gold);
+    background: linear-gradient(135deg, var(--blue-medium), var(--blue-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .footer-section p,
@@ -813,7 +823,10 @@ footer {
 }
 
 .footer-section a:hover {
-    color: var(--gold);
+    background: linear-gradient(135deg, var(--blue-light), var(--blue-sky));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     padding-left: 5px;
 }
 
@@ -836,8 +849,8 @@ footer {
 }
 
 .social-links a:hover {
-    background: var(--gold);
-    color: var(--primary-green);
+    background: linear-gradient(135deg, var(--blue-medium), var(--blue-light));
+    color: var(--white);
     transform: translateY(-3px);
 }
 
