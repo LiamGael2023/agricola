@@ -61,6 +61,24 @@ document.addEventListener('DOMContentLoaded', () => {
     updateDashboardStats();
 });
 
+// ===== Header Functions =====
+function toggleUserMenu() {
+    showNotification('Menú de usuario disponible próximamente', 'info');
+}
+
+function performSearch() {
+    const searchInput = document.getElementById('searchInput');
+    const searchTerm = searchInput.value.trim().toLowerCase();
+
+    if (!searchTerm) {
+        showNotification('Por favor ingresa un término de búsqueda', 'warning');
+        return;
+    }
+
+    showNotification(`Buscando: ${searchTerm}...`, 'info');
+    // Aquí se implementaría la búsqueda real
+}
+
 // ===== Load Account Information =====
 function loadAccountInfo() {
     document.getElementById('accountNumber').textContent = accountData.accountNumber;

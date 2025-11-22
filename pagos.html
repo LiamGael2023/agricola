@@ -11,6 +11,9 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="styles.css">
+
     <!-- Tabler CSS -->
     <link href="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/css/tabler.min.css" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet"/>
@@ -35,21 +38,12 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        .navbar {
-            background: linear-gradient(to right, #043b5d 0%, #065da5 50%, #0880d8 100%) !important;
+        .page {
+            margin-top: 0;
         }
 
-        .navbar-brand {
-            color: var(--white) !important;
-            font-weight: 700;
-        }
-
-        .nav-link {
-            color: rgba(255,255,255,0.9) !important;
-        }
-
-        .nav-link:hover {
-            color: var(--gold) !important;
+        .page-wrapper {
+            padding-top: 2rem;
         }
 
         .water-bill-card {
@@ -91,43 +85,62 @@
     </style>
 </head>
 <body class="theme-light">
-    <div class="page">
-        <!-- Navbar -->
-        <header class="navbar navbar-expand-md navbar-dark d-print-none">
-            <div class="container-xl">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
-                    <a href="home.html">
-                        <i class="fas fa-seedling me-2" style="font-size: 1.5rem; color: var(--gold);"></i>
-                        Chavimochic Marketplace
-                    </a>
-                </h1>
-                <div class="navbar-nav flex-row order-md-last">
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown">
-                            <span class="avatar avatar-sm" style="background: var(--primary-green);">
-                                <i class="fas fa-user"></i>
-                            </span>
-                            <div class="d-none d-xl-block ps-2">
-                                <div class="text-white">Juan Pérez</div>
-                                <div class="mt-1 small text-white-50">Cuenta: 12345678</div>
-                            </div>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                            <a href="#" class="dropdown-item">Mi Perfil</a>
-                            <a href="#" class="dropdown-item">Historial de Pagos</a>
-                            <div class="dropdown-divider"></div>
-                            <a href="home.html" class="dropdown-item">Volver al Inicio</a>
-                            <a href="index.html" class="dropdown-item">Tienda Virtual</a>
-                            <div class="dropdown-divider"></div>
-                            <a href="home.html" class="dropdown-item">Cerrar Sesión</a>
-                        </div>
-                    </div>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="top-bar-left">
+                <div class="top-bar-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Atención 24/7</span>
+                </div>
+                <div class="top-bar-item">
+                    <i class="fas fa-truck"></i>
+                    <span>Envíos a nivel nacional</span>
+                </div>
+                <div class="top-bar-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+51 123 456 789</span>
                 </div>
             </div>
-        </header>
+            <div class="top-bar-right">
+                <a href="home.html#nosotros" class="top-bar-link">Nosotros</a>
+                <a href="home.html#proyecto" class="top-bar-link">Proyecto Chavimochic</a>
+                <a href="home.html#beneficios" class="top-bar-link">Beneficios</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="home.html" class="logo">
+                <i class="fas fa-seedling logo-icon"></i>
+                <span class="logo-text">Chavimochic Marketplace</span>
+            </a>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar recibos..." id="searchInput">
+                <button onclick="performSearch()">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Inicio</a></li>
+                <li><a href="index.html">Tienda Virtual</a></li>
+                <li><a href="pagos.html" class="active">Pagos</a></li>
+                <li><a href="index.html#categorias">Categorías</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
+            <button class="cart-btn" onclick="toggleUserMenu()">
+                <i class="fas fa-user"></i>
+                <span class="cart-text">Mi Cuenta</span>
+            </button>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <div class="page">
 
         <!-- Page wrapper -->
         <div class="page-wrapper">
